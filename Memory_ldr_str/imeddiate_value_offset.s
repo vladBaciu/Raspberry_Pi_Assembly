@@ -1,3 +1,5 @@
+@ vim:ft=armv5
+
 .data
 var1: .word 3
 var2: .word 4
