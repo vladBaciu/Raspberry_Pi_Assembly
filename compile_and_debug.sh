@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm -f output.o
+rm -f output
+
 arm-linux-gnueabihf-as $1 -o output.o && arm-linux-gnueabihf-ld -static output.o -o output
 
 
@@ -10,7 +13,6 @@ wait
 
 echo "Connect to the gdb server ..."
 gnome-terminal -- gdb-multiarch -q --nh -ex 'set architecture arm' -ex 'file output' -ex 'target remote localhost:1234' -ex 'layout split' -ex 'layout regs'
-
 
 
 
